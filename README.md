@@ -55,8 +55,14 @@ This library allows the client-side control of the Hmi4DinBox connected by an I2
 It is intended to be used in an Arduino environment (also compatible with the 
 [PiDuino library](https://github.com/epsilonrt/piduino) on Pi boards such as Raspberry Pi or NanoPi).
 
-Associated with a library for the management of the LCD like [LCD_ST7032](https://github.com/epsilonrt/LCD_ST7032), 
-one has a complete toolbox to control the Hmi4DinBox.
+To install the library for Arduino IDE, simply download its 
+[zip file](https://github.com/epsilonrt/Hmi4DinBox/archive/master.zip) and 
+integrate it into your sketch according to 
+[explanations on the Arduino site](https://www.arduino.cc/en/Guide/Libraries#toc4).
+
+**The Hmi4DinBox library uses the [WireHmi](https://github.com/epsilonrt/WireHmi) library which must therefore be installed in the same way !**
+
+**To use the LCD, you must also install the [LCD_ST7032](https://github.com/epsilonrt/LCD_ST7032) library.**
 
 ## How to use the HMI in your program ?
 
