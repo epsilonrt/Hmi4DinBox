@@ -10,9 +10,11 @@ _Human-Machine Interface for Din Box_
 Hmi4DinBox is a human-machine interface designed to be implemented on the front 
 of a DIN rail enclosure.
 
-<a href="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm">
-  <img src="https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox.png" alt="Hmi4DinBox in his box" align="middle">
-</a>
+<p align="center"> 
+  <a href="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm">
+    <img src="https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox.png" alt="Hmi4DinBox in his box">
+  </a>
+</p>
 
 Its features are as follows :   
 * 5 leds,  
