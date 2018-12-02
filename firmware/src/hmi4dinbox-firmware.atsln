@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_led", "test\led\test_led.cproj", "{3AC6D55F-BEDD-49F0-A26D-4E7F8F31605C}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_backlight", "test\backlight\test_backlight.cproj", "{A6153699-A74F-4135-A806-4611EAFC562D}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_button", "test\button\test_button.cproj", "{077A0B2E-BD19-42FD-9E64-666A3F1D2D1A}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_delay", "test\delay\test_delay.cproj", "{E0B8CD8A-19C9-4358-8355-190149F140D6}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_lcd", "test\lcd\test_lcd.cproj", "{F8EE2831-25AD-4F51-832F-9BCCBF97CA6A}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_serial_hw", "test\serial\hardware\test_serial_hw.cproj", "{E9C6BD14-BD50-400C-A70A-2805B79708A8}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_serial_sw", "test\serial\software\test_serial_sw.cproj", "{8B2ADA77-53A9-47B2-97E2-CB3BA5A085E2}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_task", "test\task\test_task.cproj", "{EEE38C59-C7B2-491D-A354-3DACAE8F2336}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_twi", "test\twi\test_twi.cproj", "{B1AED732-8021-4AE0-BCCD-4D1A292F5341}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "hmi4dinbox-firmware", "src\hmi4dinbox-firmware.cproj", "{6A5A1D82-5772-45FB-BBFA-2C6F17D683D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		default|AVR = default|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AC6D55F-BEDD-49F0-A26D-4E7F8F31605C}.default|AVR.ActiveCfg = default|AVR
+		{3AC6D55F-BEDD-49F0-A26D-4E7F8F31605C}.default|AVR.Build.0 = default|AVR
+		{A6153699-A74F-4135-A806-4611EAFC562D}.default|AVR.ActiveCfg = default|AVR
+		{A6153699-A74F-4135-A806-4611EAFC562D}.default|AVR.Build.0 = default|AVR
+		{077A0B2E-BD19-42FD-9E64-666A3F1D2D1A}.default|AVR.ActiveCfg = default|AVR
+		{077A0B2E-BD19-42FD-9E64-666A3F1D2D1A}.default|AVR.Build.0 = default|AVR
+		{E0B8CD8A-19C9-4358-8355-190149F140D6}.default|AVR.ActiveCfg = default|AVR
+		{E0B8CD8A-19C9-4358-8355-190149F140D6}.default|AVR.Build.0 = default|AVR
+		{F8EE2831-25AD-4F51-832F-9BCCBF97CA6A}.default|AVR.ActiveCfg = default|AVR
+		{F8EE2831-25AD-4F51-832F-9BCCBF97CA6A}.default|AVR.Build.0 = default|AVR
+		{E9C6BD14-BD50-400C-A70A-2805B79708A8}.default|AVR.ActiveCfg = default|AVR
+		{E9C6BD14-BD50-400C-A70A-2805B79708A8}.default|AVR.Build.0 = default|AVR
+		{8B2ADA77-53A9-47B2-97E2-CB3BA5A085E2}.default|AVR.ActiveCfg = default|AVR
+		{8B2ADA77-53A9-47B2-97E2-CB3BA5A085E2}.default|AVR.Build.0 = default|AVR
+		{EEE38C59-C7B2-491D-A354-3DACAE8F2336}.default|AVR.ActiveCfg = default|AVR
+		{EEE38C59-C7B2-491D-A354-3DACAE8F2336}.default|AVR.Build.0 = default|AVR
+		{B1AED732-8021-4AE0-BCCD-4D1A292F5341}.default|AVR.ActiveCfg = default|AVR
+		{B1AED732-8021-4AE0-BCCD-4D1A292F5341}.default|AVR.Build.0 = default|AVR
+		{6A5A1D82-5772-45FB-BBFA-2C6F17D683D3}.default|AVR.ActiveCfg = default|AVR
+		{6A5A1D82-5772-45FB-BBFA-2C6F17D683D3}.default|AVR.Build.0 = default|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

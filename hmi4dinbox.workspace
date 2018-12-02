@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="hmi4dinbox" Database="" Version="10.0.0">
+  <Project Name="hmi4dinbox" Path="../../../../../BTS/PP - Projet Professionnel/PP 2017-2018/Fabrication/Hmi4DinBox/hmi4dinbox.project" Active="No"/>
+  <Project Name="hmi4dinbox-firmware" Path="../../../../../BTS/PP - Projet Professionnel/PP 2017-2018/Fabrication/Hmi4DinBox/firmware/src/hmi4dinbox-firmware.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="no">
+      <Environment/>
+      <Project Name="hmi4dinbox" ConfigName="Debug"/>
+      <Project Name="hmi4dinbox" ConfigName="Debug"/>
+      <Project Name="hmi4dinbox-firmware" ConfigName="Debug"/>
+      <Project Name="hmi4dinbox-firmware" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="hmi4dinbox" ConfigName="Release"/>
+      <Project Name="hmi4dinbox" ConfigName="Release"/>
+      <Project Name="hmi4dinbox-firmware" ConfigName="Release"/>
+      <Project Name="hmi4dinbox-firmware" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

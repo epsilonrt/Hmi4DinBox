@@ -22,11 +22,11 @@ releases in the 5 directions stored in a buffer),
 * powered by 5V or 3.3V allowing it to be driven by an Arduino board or Pi board.
 
 Published in open-source hardware, it comes with its 
-[electronic schema](https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox-sch.pdf), 
-[layout](https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox-layout.pdf) 
+[electronic schema](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-sch.pdf), 
+[layout](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-layout.pdf) 
 and [manufacturing files](https://github.com/epsilonrt/Hmi4DinBox/tree/master/gerber) and a control library.
 
-![Hmi4DinBox Animation](https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm)
+[Hmi4DinBox Animation](https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm)
 
 ## How to connect your HMI to your board ?
 
@@ -44,7 +44,7 @@ one has a complete toolbox to control the Hmi4DinBox.
 ## How to use the HMI in your program ?
 
 At the beginning of the file 
-[Hmi4DinBox.h](https://github.com/epsilonrt/Hmi4DinBox/blob/master/src/library/Hmi4DinBox.h), 
+[Hmi4DinBox.h](https://github.com/epsilonrt/Hmi4DinBox/blob/master/library/src/Hmi4DinBox.h), 
 we see the definition of constants describing the hardware solution:
 
     #define LED1 0

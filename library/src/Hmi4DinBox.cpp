@@ -21,11 +21,6 @@
 //                            Hmi4DinBox class
 //
 // -----------------------------------------------------------------------------
-#define LED_REG       0
-#define BACKLIGHT_REG 1
-#define KEY_REG       2
-#define LED_NB        5
-#define KEY_RELEASE   (1<<7)
 
 // -----------------------------------------------------------------------------
 Hmi4DinBox::Hmi4DinBox (int hirqPin, byte slaveAddress) :

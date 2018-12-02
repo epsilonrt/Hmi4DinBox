@@ -16,7 +16,6 @@
  */
 #ifndef __HMI4DINBOX_PUBLIC_H__
 #define __HMI4DINBOX_PUBLIC_H__
-#include <WireHmi.h>
 
 #define LED1  0
 #define LED2  1
@@ -38,6 +37,16 @@
 
 #define HMI4DINBOX_SLAVE_ADDR 0b0111111
 
+#define LED_NB        5
+#define LED_REG       0
+#define BACKLIGHT_REG 1
+#define KEY_REG       2
+#define KEY_RELEASE   (1<<7)
+
+#ifdef __cplusplus
+
+#include <WireHmi.h>
+
 class Hmi4DinBox : public  WireSlave {
   public:
     Hmi4DinBox (int hirqPin = -1, byte slaveAddress = HMI4DINBOX_SLAVE_ADDR);
@@ -46,6 +55,8 @@ class Hmi4DinBox : public  WireSlave {
     WireKeyboard keyb;
     WireBackLight backlight;
 };
+
+#endif /* __cplusplus defined */
 
 /* ========================================================================== */
 #endif /* __HMI4DINBOX_PUBLIC_H__ */
