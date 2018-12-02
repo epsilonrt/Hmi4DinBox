@@ -11,7 +11,7 @@ Hmi4DinBox is a human-machine interface designed to be implemented on the front
 of a DIN rail enclosure.
 
 <a href="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm">
-  <img src="https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox.png" alt="Hmi4DinBox in his box" align="center">
+  <img src="https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox.png" alt="Hmi4DinBox in his box" align="middle">
 </a>
 
 Its features are as follows :   
@@ -24,7 +24,7 @@ releases in the 5 directions stored in a buffer),
 * powered by 5V or 3.3V allowing it to be driven by an Arduino board or Pi board.
 
 Published in open-source hardware, it comes with its 
-[electronic schema](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-sch.pdf), 
+[electronic schematic](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-sch.pdf), 
 [layout](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-layout.pdf) 
 and [manufacturing files](https://github.com/epsilonrt/Hmi4DinBox/tree/master/gerber) and a control library.
 
