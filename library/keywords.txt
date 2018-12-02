@@ -1,0 +1,32 @@
+#######################################
+# Syntax Coloring Map For Hmi4DinBox Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+Hmi4DinBox	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+LED1	LITERAL1
+LED2	LITERAL1
+LED3	LITERAL1
+LED4	LITERAL1
+LED5	LITERAL1
+LED_RED	LITERAL1
+LED_GREEN1	LITERAL1
+LED_GREEN2	LITERAL1
+LED_YELLOW1	LITERAL1
+LED_YELLOW2	LITERAL1
+KUP	LITERAL1
+KDOWN	LITERAL1
+KLEFT	LITERAL1
+KRIGHT	LITERAL1
+KCENTER	LITERAL1
