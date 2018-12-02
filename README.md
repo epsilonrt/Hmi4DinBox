@@ -7,10 +7,12 @@ _Human-Machine Interface for Din Box_
 
 ## Features
 
-![Hmi4DinBox in his box.](https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox.png)
-
 Hmi4DinBox is a human-machine interface designed to be implemented on the front 
 of a DIN rail enclosure.
+
+<a href="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm">
+  <img src="https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox.png" alt="Hmi4DinBox in his box" align="center">
+</a>
 
 Its features are as follows :   
 * 5 leds,  
@@ -26,11 +28,24 @@ Published in open-source hardware, it comes with its
 [layout](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-layout.pdf) 
 and [manufacturing files](https://github.com/epsilonrt/Hmi4DinBox/tree/master/gerber) and a control library.
 
-[Hmi4DinBox Animation](https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm)
-
 ## How to connect your HMI to your board ?
 
-**TODO**
+<img src="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/kk254.png" alt="kk254.png" align="right">
+
+The HMI is connected to your board by the 5-pin J1 MOLEX KK254 connector on the back of the PCB.
+
+The pinout of the J1 connector is as follows :
+
+| #   | Name    | Description                                                                           |
+| :-: | :---:   | :----------------------------------------------------------                           |
+| 1   | VCC     | 5V or 3.3V power supply, protected against overvoltages and polarity inversions |
+| 2   | SCL     | I2C clock                                                                           |
+| 3   | SDA     | I2C data                                                                           |
+| 4   | HIRQ    | Indicates that one or more actions have been performed on the navigation button       |                                                             |
+| 5   | GND     | Ground                                                                                |
+
+`HIRQ` is in the high state as long as there are unread actions in the buffer (capacity of 32 actions).
+It goes low when all actions have been read with `key()`.
 
 ## How to install the library ?
 
