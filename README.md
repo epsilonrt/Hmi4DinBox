@@ -2,7 +2,7 @@
 _Human-Machine Interface for Din Box_
 
 <a href="https://www.oshwa.org/">
-  <img src="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/Open-source-hardware-logo.png" alt="Open-source-hardware-logo.png" align="right" valign="top">
+  <img src="extras/images/Open-source-hardware-logo.png" alt="Open-source-hardware-logo.png" align="right" valign="top">
 </a>
 
 ## Features
@@ -11,8 +11,8 @@ Hmi4DinBox is a human-machine interface designed to be implemented on the front
 of a DIN rail enclosure.
 
 <p align="center"> 
-  <a href="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/hmi4dinbox.webm">
-    <img src="https://github.com/epsilonrt/Hmi4DinBox/raw/master/images/hmi4dinbox.png" alt="Hmi4DinBox in his box">
+  <a href="extras/images/hmi4dinbox.webm">
+    <img src="extras/images/hmi4dinbox.png" alt="Hmi4DinBox in his box">
   </a>
 </p>
 
@@ -23,16 +23,21 @@ Its features are as follows :
 * driven by a simple I2C bus and a binary signal `HIRQ` which indicates that one or 
 more actions have been performed on the navigation button (key presses and 
 releases in the 5 directions stored in a buffer),  
-* powered by 5V or 3.3V allowing it to be driven by an Arduino board or Pi board.
+* powered by 5V or 3.3V allowing it to be driven by an Arduino board or Pi board,  
+* USB programming interface compatible with Arduino IDE,  
+* JTAG interface for programming the bootloader and debugging the firmware.
 
-Published in open-source hardware, it comes with its 
-[electronic schematic](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-sch.pdf), 
-[layout](https://github.com/epsilonrt/Hmi4DinBox/raw/master/hmi4dinbox-layout.pdf) 
-and [manufacturing files](https://github.com/epsilonrt/Hmi4DinBox/tree/master/gerber) and a control library.
+Published in open-source hardware, it comes with :  
+* this Arduino library (also compatible with the [PiDuino](https://github.com/epsilonrt/piduino),  
+* [electronic schematic](extras/hardware/hmi4dinbox-sch.pdf),  
+* [PCB layout](extras/hardware/hmi4dinbox-layout.pdf),  
+* [manufacturing files](extras/hardware/gerber) and [Proteus CAD files](extras/hardware/proteus),  
+* [Arduino bootloader and core](https://github.com/epsilonrt/duino-boards),  
+* [firmware](extras/firmware).  
 
 ## How to connect your HMI to your board ?
 
-<img src="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/images/kk254.png" alt="kk254.png" align="right">
+<img src="extras/images/kk254.png" alt="kk254.png" align="right">
 
 The HMI is connected to your board by the 5-pin J1 MOLEX KK254 connector on the back of the PCB.
 
@@ -60,14 +65,12 @@ To install the library for Arduino IDE, simply download its
 integrate it into your sketch according to 
 [explanations on the Arduino site](https://www.arduino.cc/en/Guide/Libraries#toc4).
 
-**The Hmi4DinBox library uses the [WireHmi](https://github.com/epsilonrt/WireHmi) library which must therefore be installed in the same way !**
-
 **To use the LCD, you must also install the [LCD_ST7032](https://github.com/epsilonrt/LCD_ST7032) library.**
 
 ## How to use the HMI in your program ?
 
 At the beginning of the file 
-[Hmi4DinBox.h](https://github.com/epsilonrt/Hmi4DinBox/blob/master/library/src/Hmi4DinBox.h), 
+[Hmi4DinBox.h](src/Hmi4DinBox.h), 
 we see the definition of constants describing the hardware solution:
 
     #define LED1 0
@@ -116,7 +119,7 @@ Then we can access:
 
 ### Using leds
 
-As can be seen in the sketch [LedDemo.ino](https://github.com/epsilonrt/Hmi4DinBox/blob/master/library/examples/Hmi4DinBox/LedDemo/LedDemo.ino):
+As can be seen in the sketch [LedDemo.ino](examples/LedDemo/LedDemo.ino):
 
     hmi.led.set (LED1);
 
@@ -139,7 +142,7 @@ If we pass him a parameter, that corresponds to the state of the leds. Bit 0 of 
 
 ### Using the keyboard
 
-As can be seen in the sketch [KeyboardDemo.ino](https://github.com/epsilonrt/Hmi4DinBox/blob/master/library/examples/Hmi4DinBox/KeyboardDemo/KeyboardDemo.ino):
+As can be seen in the sketch [KeyboardDemo.ino](examples/KeyboardDemo/KeyboardDemo.ino):
 
     hmi.keyb.available ()
 
@@ -159,7 +162,7 @@ if she was pressed.
 
 ### Using the backlight
 
-As can be seen in the sketch [BacklightDemo.ino](https://github.com/epsilonrt/Hmi4DinBox/blob/master/library/examples/Hmi4DinBox/BacklightDemo/BacklightDemo.ino):
+As can be seen in the sketch [BacklightDemo.ino](examples/BacklightDemo/BacklightDemo.ino):
 
     hmi.backlight.write (bl);
 

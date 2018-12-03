@@ -1,28 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="hmi4dinbox" InternalType="" Version="10.0.0">
-  <VirtualDirectory Name="library">
-    <VirtualDirectory Name="examples">
-      <VirtualDirectory Name="Hmi4DinBox">
-        <VirtualDirectory Name="BacklightDemo">
-          <File Name="library/examples/Hmi4DinBox/BacklightDemo/BacklightDemo.ino"/>
-        </VirtualDirectory>
-        <VirtualDirectory Name="KeyboardDemo">
-          <File Name="library/examples/Hmi4DinBox/KeyboardDemo/KeyboardDemo.ino"/>
-        </VirtualDirectory>
-        <VirtualDirectory Name="FullTest">
-          <File Name="library/examples/Hmi4DinBox/FullTest/FullTest.ino"/>
-        </VirtualDirectory>
-        <VirtualDirectory Name="LedDemo">
-          <File Name="library/examples/Hmi4DinBox/LedDemo/LedDemo.ino"/>
-        </VirtualDirectory>
-      </VirtualDirectory>
+  <VirtualDirectory Name="examples">
+    <VirtualDirectory Name="BacklightDemo">
+      <File Name="examples/BacklightDemo/BacklightDemo.ino"/>
     </VirtualDirectory>
-    <VirtualDirectory Name="src">
-      <File Name="library/src/Hmi4DinBox.cpp"/>
-      <File Name="library/src/Hmi4DinBox.h"/>
+    <VirtualDirectory Name="KeyboardDemo">
+      <File Name="examples/KeyboardDemo/KeyboardDemo.ino"/>
     </VirtualDirectory>
-    <File Name="library/keywords.txt"/>
-    <File Name="library/library.properties"/>
+    <VirtualDirectory Name="FullTest">
+      <File Name="examples/FullTest/FullTest.ino"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="LedDemo">
+      <File Name="examples/LedDemo/LedDemo.ino"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Plugins>
     <Plugin Name="qmake">
@@ -155,5 +145,13 @@
     <File Name="COPYING"/>
     <File Name="AUTHORS"/>
     <File Name="README.md"/>
+    <File Name="keywords.txt"/>
+    <File Name="library.properties"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="src">
+    <File Name="src/Hmi4DinBox.cpp"/>
+    <File Name="src/WireHmi.h"/>
+    <File Name="src/WireHmi.cpp"/>
+    <File Name="src/Hmi4DinBox.h"/>
   </VirtualDirectory>
 </CodeLite_Project>

@@ -5,16 +5,48 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
+WireSlave	KEYWORD1
+WireRegister	KEYWORD1
+WireLeds	KEYWORD1
+WireKeyboard	KEYWORD1
+WireBackLight	KEYWORD1
 Hmi4DinBox	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 begin	KEYWORD2
+write	KEYWORD2
+read	KEYWORD2
+address	KEYWORD2
+setAddress 	KEYWORD2
+readAll	KEYWORD2
+writeAll	KEYWORD2
+toggleAll	KEYWORD2
+set	KEYWORD2
+clear	KEYWORD2
+toggle	KEYWORD2
+get	KEYWORD2
+size	KEYWORD2
+all	KEYWORD2
+available	KEYWORD2
+key	KEYWORD2
+released	KEYWORD2
+pressed	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+led	KEYWORD2
+keyb	KEYWORD2
+backlight	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
+Read	LITERAL1
+Write	LITERAL1
+ReadWrite	LITERAL1
 LED1	LITERAL1
 LED2	LITERAL1
 LED3	LITERAL1
