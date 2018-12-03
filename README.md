@@ -11,7 +11,7 @@ Hmi4DinBox is a human-machine interface designed to be implemented on the front
 of a DIN rail enclosure.
 
 <p align="center"> 
-  <a href="extras/images/hmi4dinbox.webm">
+  <a href="https://raw.githubusercontent.com/epsilonrt/Hmi4DinBox/master/extras/images/hmi4dinbox.webm">
     <img src="extras/images/hmi4dinbox.png" alt="Hmi4DinBox in his box">
   </a>
 </p>
@@ -28,7 +28,7 @@ releases in the 5 directions stored in a buffer),
 * JTAG interface for programming the bootloader and debugging the firmware.
 
 Published in open-source hardware, it comes with :  
-* this Arduino library (also compatible with the [PiDuino](https://github.com/epsilonrt/piduino),  
+* this Arduino library (also compatible with the [PiDuino](https://github.com/epsilonrt/piduino)),  
 * [electronic schematic](extras/hardware/hmi4dinbox-sch.pdf),  
 * [PCB layout](extras/hardware/hmi4dinbox-layout.pdf),  
 * [manufacturing files](extras/hardware/gerber) and [Proteus CAD files](extras/hardware/proteus),  

@@ -155,5 +155,6 @@
     <File Name="config.h"/>
     <File Name="LICENSE"/>
     <File Name="Makefile"/>
+    <File Name="../README.md"/>
   </VirtualDirectory>
 </CodeLite_Project>
