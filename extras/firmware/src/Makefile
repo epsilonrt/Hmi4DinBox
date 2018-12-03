@@ -124,7 +124,7 @@ CPPDEFS =
 #     Each directory must be seperated by a space.
 #     Use forward slashes for directory separators.
 #     For a directory that has spaces, enclose it in quotes.
-EXTRA_INCDIRS = $(PROJECT_TOPDIR)/../../library/src
+EXTRA_INCDIRS = $(PROJECT_TOPDIR)/../../../src
 
 #---------------- Library Options ----------------
 # List any extra directories to look for libraries here.
