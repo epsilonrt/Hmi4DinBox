@@ -65,8 +65,6 @@ To install the library for Arduino IDE, simply download its
 integrate it into your sketch according to 
 [explanations on the Arduino site](https://www.arduino.cc/en/Guide/Libraries#toc4).
 
-**To use the LCD, you must also install the [LCD_ST7032](https://github.com/epsilonrt/LCD_ST7032) library.**
-
 ## How to use the HMI in your program ?
 
 At the beginning of the file 
@@ -113,9 +111,12 @@ the internal buffer (it will thus be necessary to read them ...).
     Hmi4DinBox hmi (hirqPin);
 
 Then we can access:
+* to the lcd function thanks to `hmi.lcd`,
 * to the led function thanks to `hmi.led`,
 * to the keyboard function thanks to `hmi.keyb`,
 * the backlight function with `hmi.backlight`.
+
+### Using LCD
 
 ### Using leds
 
@@ -169,5 +170,13 @@ As can be seen in the sketch [BacklightDemo.ino](examples/BacklightDemo/Backligh
 allows to modify the value of the backlight (between 0 and 255), as this value is stored in EEPROM by the HMI, it is possible to read the current value thanks to:
 
     bl = hmi.backlight.read ();
+
+## How to update the firmware ?
+
+! TODO !
+
+## How to program the bootloader ?
+
+! TODO !
 
 ------

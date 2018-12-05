@@ -2,7 +2,7 @@
 #----------------------------------------------------------------------------
 # $Id$
 
-SUBDIRS  = backlight button delay lcd led serial task twi
+SUBDIRS  = backlight button delay lcd led task
 
 all: $(SUBDIRS)
 clean: $(SUBDIRS)

@@ -31,7 +31,7 @@ TARGET = test_lcd
 PROJECT_TOPDIR = ../..
 
 # User Project
-USER_PROJECT = TOUERIS2_HMI
+USER_PROJECT = HMI4DINBOX
 
 #----------------------------------------------------------------------------
 #                               ~~~~AVRIO~~~~
@@ -41,21 +41,18 @@ AVRIO_TOPDIR = $(abspath $(AVRIO_ROOT))
 # Nom de la carte cible (voir le fichier avrio/boards.txt pour la liste)
 # Si BOARD est vide, il faut un fichier board.mk pour définir les propriétés de
 # la carte dans le répertoire où se trouve ce Makefile !
-BOARD = TOUERIS2_HMI
+BOARD = HMI4DINBOX
 
 # Permet de générer un fichier version-git.h permettant de récupérer les informations sur la version
 GIT_VERSION = OFF
 
 # Configuration de AvrIO
 # -------------------------------
+AVRIO_CONFIG = LCD_DEFAULT_CONTRAST=16
 AVRIO_CONFIG  += LCD_BARGRAPH_ENABLE
 AVRIO_CONFIG  += TWI_MASTER_ENABLE
 #AVRIO_CONFIG  += AVRIO_LCD_THMI
 AVRIO_CONFIG  += AVRIO_LCD_ST7032
-AVRIO_CONFIG  += AVRIO_LCD_BACKLIGHT_ENABLE
-AVRIO_CONFIG += AVRIO_SERIAL_FLAVOUR=SERIAL_FLAVOUR_IRQ
-AVRIO_CONFIG  += AVRIO_SERIAL_RTSCTS
-#AVRIO_CONFIG  += AVRIO_LCD_NOAUTO_RETURN
 
 # Valide le noyau multitâche temps réel AVRX (sous forme de bibliothèque)
 AVRX = OFF
@@ -96,8 +93,8 @@ DISABLE_DELETE_UNUSED_SECTIONS = OFF
 # Le chemin d'accès des fichiers sources systèmes a été ajouté au chemin de
 # recherche du compilateur, il n'est donc pas nécessaire de préciser le chemin
 # d'accès complet du fichier mais seulement le nom du projet (avrio, avrx, ...)
-SRC = $(TARGET).c $(AVRIO_LCD_SRC) avrio/util.c avrio/twi_noirq.c avrio/button.c
-SRC += avrio/serial.c avrio/queue.c
+SRC  = $(TARGET).c
+SRC += $(AVRIO_LCD_SRC) avrio/twi_noirq.c avrio/button.c 
 # Liste des fichiers source C++. (Les dépendances sont automatiquement générées.)
 # Le chemin d'accès des fichiers sources systèmes a été ajouté au chemin de
 # recherche du compilateur, il n'est donc pas nécessaire de préciser le chemin

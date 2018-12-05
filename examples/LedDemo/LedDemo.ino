@@ -8,31 +8,20 @@
 // This example code is in the public domain.
 
 #include <Hmi4DinBox.h>
-#include <LCD_ST7032.h>
 
 Hmi4DinBox hmi;
-LCD_ST7032 lcd;
-int loops = 0;
 void printLed (int led);
 
 void setup() {
 
-  // starts the LCD, need to repeat the call in the case of a USB power boot...
-  for (int i = 0; i < 2; i++) {
-    lcd.begin();  // this function calls Wire.begin(), no need to double the call!
+  if (!hmi.begin (24)) {
+  
+    exit (1); // HMI failed to start !
   }
-  lcd.setcontrast (24); // contrast value range is 0-63, try 25@5V or 50@3.3V as a starting value
-  lcd.cursor();
-  lcd.blink();
-
-  while (!hmi.begin()) { // start the HMI by checking that it has worked well...
-    lcd.clear();
-    lcd.print ("Wait hmi:");
-    lcd.print (++loops);
-    delay (500);
-  }
-  lcd.clear();
-  lcd.print ("12345");
+  hmi.lcd.cursor();
+  hmi.lcd.blink();
+  hmi.lcd.clear();
+  hmi.lcd.print ("12345");
 }
 
 void loop() {
@@ -89,14 +78,12 @@ void loop() {
 }
 
 void printLed (int led) {
-  lcd.setCursor (1, led);
+  hmi.lcd.setCursor (1, led);
   if (hmi.led.get (led)) {
-    lcd.write ('O');
+    hmi.lcd.write ('O');
   }
   else {
 
-    lcd.write ('_');
+    hmi.lcd.write ('_');
   }
 }
-
-//------------------------------------------------------------------------------

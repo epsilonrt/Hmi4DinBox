@@ -34,12 +34,12 @@ void vWaitUntilI2cBusy (void);
 // -----------------------------------------------------------------------------
 void
 vHmiInit (void) {
-  xLedMask led;
+  uint8_t led;
   MCUSR = 0;  // Permet de dévalider le watch-dog en cas de reset watch-dog
 
   wdt_disable();  // Evite un déclenchement watch-dog pendant Init
 
-  vLedInit();
+  vHmiLedInit();
   vHmiHirqInit();
   if (MCUSR & _BV (WDRF)) {
 
@@ -52,7 +52,7 @@ vHmiInit (void) {
 
     led = LED_GREEN1;
   }
-  vLedSet (led);
+  vHmiLedSet (led);
 
   if (iEepromLoadBlock (&xConfig, &xConfigEE, sizeof (xHmiConfig)) < 0) {
 
@@ -73,12 +73,12 @@ vHmiInit (void) {
   vHmiHirqClear();
   MCUSR |= _BV (WDRF); // Clear du bit Watchdog Reset Flag
 
-  vLedClear (led);
+  vHmiLedClear (led);
   // Signale fin init en faisant clignoter 3 fois, la led rouge si déclenchement
   // watchdog, sinon la led verte
   for (uint8_t j = 0; j < (3 * 2); j++) {
 
-    vLedToggle (led);
+    vHmiLedToggle (led);
     delay_ms (50);
   }
   wdt_enable (CFG_IHM_WDT_TIMEOUT); // Sécurité en cas de blocage appli.
@@ -239,15 +239,15 @@ vAssert (bool bTest) {
 
     for (;;) {
 
-      vLedSet (LED_RED);
+      vHmiLedSet (LED_RED);
       delay_ms (50);
-      vLedClear (LED_RED);
+      vHmiLedClear (LED_RED);
       delay_ms (150);
     }
   }
 #else
   if (!bTest) {
-    vLedSet (LED_RED);
+    vHmiLedSet (LED_RED);
   }
 #endif
 }

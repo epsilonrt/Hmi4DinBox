@@ -31,7 +31,7 @@ TARGET = test_delay
 PROJECT_TOPDIR = ../..
 
 # User Project
-USER_PROJECT = TOUERIS2_HMI
+USER_PROJECT = HMI4DINBOX
 
 #----------------------------------------------------------------------------
 #                               ~~~~AVRIO~~~~
@@ -41,7 +41,7 @@ AVRIO_TOPDIR = $(abspath $(AVRIO_ROOT))
 # Nom de la carte cible (voir le fichier avrio/boards.txt pour la liste)
 # Si BOARD est vide, il faut un fichier board.mk pour définir les propriétés de
 # la carte dans le répertoire où se trouve ce Makefile !
-BOARD = TOUERIS2_HMI
+BOARD = HMI4DINBOX
 
 # Permet de générer un fichier version-git.h permettant de récupérer les informations sur la version
 GIT_VERSION = OFF

@@ -46,14 +46,16 @@
 #ifdef __cplusplus
 
 #include <WireHmi.h>
+#include <WireLcd.h>
 
 class Hmi4DinBox : public  WireSlave {
   public:
     Hmi4DinBox (int hirqPin = -1, byte slaveAddress = HMI4DINBOX_SLAVE_ADDR);
-    bool begin();
+    bool begin (int lcdContrast = 25, bool lcdBoost = false); // contrast value range is 0-63, try 25@5V or 50@3.3V as a starting value
     WireLeds led;
     WireKeyboard keyb;
     WireBackLight backlight;
+    WireLcd lcd;
 };
 
 #endif /* __cplusplus defined */

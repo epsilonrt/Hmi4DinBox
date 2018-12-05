@@ -18,11 +18,7 @@
 #include <avrio/led.h>
 #include <avrio/delay.h>
 #include <avrio/lcd.h>
-#include <avrio/twi.h>
-#include <avrio/serial.h>
 
-/* constants ================================================================ */
-#define TEST_BAUDRATE 38400
 
 /* main ===================================================================== */
 int
@@ -32,61 +28,30 @@ main (void) {
   vLedInit();
 
   /*
-   * Init du bus I2C en mode maître à 400 kHz utilisé par le LCD
-   */
-  vTwiInit ();
-  eTwiSetSpeed (400);
-
-  /*
    * Init LCD avec réglage rétro-éclairage et contraste
    * Dans le cas de la carte XNODE, l'afficheur est connecté par I2C
    */
   iLcdInit();
-  ucLcdBacklightSet (32); // 0 à 63
-  ucLcdContrastSet (16);  // 0 à 31
+  stdout = &xLcd;
 
   /*
    * La liaison série L0 est définie comme entrée et sortie standard (printf, scanf ...)
    */
-  vSerialInit (TEST_BAUDRATE / 100, SERIAL_DEFAULT + SERIAL_RW + SERIAL_NOBLOCK);
-  stdout = &xSerialPort;
-  stdin = &xSerialPort;
-  sei();
+  // sei();
 
   for (;;) {
 
-    printf ("Test LCD\nCTRL+C:\tClear\nEsc:\tReset\n");
-
     // Message et compte à rebours
     vLcdClear ();
-    fprintf (&xLcd, "Hello World!\n");
+    printf ("Hello World!\n");
     for (i = 9; i >= 0; i--) {
 
-      fprintf (&xLcd, "%d", i);
+      printf ("%d", i);
       delay_ms (500);
     }
     vLcdGotoXY (13, 0);
-    fprintf (&xLcd, "Go!");
-
-    // Affiche les caractères reçus de la liaison série sur le LCD
-    do {
-      i = getchar();
-      switch (i) {
-        case 0x03:    // CTRL + C
-          printf ("\tClear\n");
-          vLcdClear();
-          break;
-        case EOF:   // Pas de caractère reçu
-        case 0x1B:  // Esc
-          break;
-        default:
-          vLedToggle (LED_LED1);
-          putchar (i);
-          fputc (i, &xLcd);
-          break;
-      }
-    }
-    while (i != 0x1B);
+    printf ("Go!");
+    delay_ms (5000);
   }
   return 0;
 }

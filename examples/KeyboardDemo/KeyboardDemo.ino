@@ -8,31 +8,20 @@
 // This example code is in the public domain.
 
 #include <Hmi4DinBox.h>
-#include <LCD_ST7032.h>
 
 const int hirqPin = 2;
 Hmi4DinBox hmi (hirqPin);
 
-LCD_ST7032 lcd;
-int loops = 0;
-
 void setup() {
 
-  // starts the LCD, need to repeat the call in the case of a USB power boot...
-  for (int i = 0; i < 2; i++) {
-    lcd.begin();  // this function calls Wire.begin(), no need to double the call!
-  }
-  lcd.setcontrast (24); // contrast value range is 0-63, try 25@5V or 50@3.3V as a starting value
-  lcd.cursor();
-  lcd.blink();
+  if (!hmi.begin (24)) {
 
-  while (!hmi.begin()) { // start the HMI by checking that it has worked well...
-    lcd.clear();
-    lcd.print ("Wait hmi:");
-    lcd.print (++loops);
-    delay (500);
+    exit (1); // HMI failed to start !
   }
-  lcd.clear();
+  
+  hmi.lcd.clear();
+  hmi.lcd.cursor();
+  hmi.lcd.blink();
 }
 
 void loop() {
@@ -44,16 +33,16 @@ void loop() {
 
     if (hmi.keyb.released()) { // this key was released ?
     
-      lcd.write ('R'); // yes, print R
+      hmi.lcd.write ('R'); // yes, print R
       hmi.led.clear(LED_GREEN1);
     }
     else {
 
-      lcd.write ('P'); // no, print P
+      hmi.lcd.write ('P'); // no, print P
       hmi.led.set(LED_GREEN1);
     }
 
-    lcd.print (key); // print the key
+    hmi.lcd.print (key); // print the key
     
     // Move the cursor when you reach the end of the line.
     column += 2;
@@ -63,10 +52,10 @@ void loop() {
         // wait for reading last key and clear the LCD
         delay(500);
         row = 0;
-        lcd.clear();
+        hmi.lcd.clear();
       }
       column = 0;
-      lcd.setCursor (row, column);
+      hmi.lcd.setCursor (row, column);
     }
 
   }

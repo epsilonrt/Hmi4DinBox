@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="hmi4dinbox" InternalType="" Version="10.0.0">
-  <VirtualDirectory Name="examples">
-    <VirtualDirectory Name="BacklightDemo">
-      <File Name="examples/BacklightDemo/BacklightDemo.ino"/>
-    </VirtualDirectory>
-    <VirtualDirectory Name="KeyboardDemo">
-      <File Name="examples/KeyboardDemo/KeyboardDemo.ino"/>
-    </VirtualDirectory>
-    <VirtualDirectory Name="FullTest">
-      <File Name="examples/FullTest/FullTest.ino"/>
-    </VirtualDirectory>
-    <VirtualDirectory Name="LedDemo">
-      <File Name="examples/LedDemo/LedDemo.ino"/>
-    </VirtualDirectory>
-  </VirtualDirectory>
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
@@ -40,6 +26,26 @@
  }]]]>
     </Plugin>
   </Plugins>
+  <VirtualDirectory Name="examples">
+    <VirtualDirectory Name="BacklightDemo">
+      <File Name="examples/BacklightDemo/BacklightDemo.ino"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="KeyboardDemo">
+      <File Name="examples/KeyboardDemo/KeyboardDemo.ino"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="FullTest">
+      <File Name="examples/FullTest/FullTest.ino"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="LedDemo">
+      <File Name="examples/LedDemo/LedDemo.ino"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="HelloWorld">
+      <File Name="examples/HelloWorld/HelloWorld.ino"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="LcdContrast">
+      <File Name="examples/LcdContrast/LcdContrast.ino"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">
@@ -139,8 +145,6 @@
       </Completion>
     </Configuration>
   </Settings>
-  <Dependencies Name="Debug"/>
-  <Dependencies Name="Release"/>
   <VirtualDirectory Name="Hmi4DinBox">
     <File Name="COPYING"/>
     <File Name="AUTHORS"/>
@@ -153,5 +157,10 @@
     <File Name="src/WireHmi.h"/>
     <File Name="src/WireHmi.cpp"/>
     <File Name="src/Hmi4DinBox.h"/>
+    <File Name="src/WireLcd.cpp"/>
+    <File Name="src/WireLcd.h"/>
+    <File Name="src/version.h"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>

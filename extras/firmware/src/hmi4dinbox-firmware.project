@@ -125,8 +125,6 @@
       </Completion>
     </Configuration>
   </Settings>
-  <Dependencies Name="Debug"/>
-  <Dependencies Name="Release"/>
   <VirtualDirectory Name="src">
     <File Name="src/backlight.h"/>
     <File Name="src/hmi.h"/>
@@ -157,4 +155,6 @@
     <File Name="Makefile"/>
     <File Name="../README.md"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
 </CodeLite_Project>

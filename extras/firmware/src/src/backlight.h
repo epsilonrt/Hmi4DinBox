@@ -1,5 +1,5 @@
-#ifndef _TOUERIS2_BACKLIGHT_H_
-#  define _TOUERIS2_BACKLIGHT_H_
+#ifndef _HMI4DINBOX_BACKLIGHT_H_
+#  define _HMI4DINBOX_BACKLIGHT_H_
 /* ========================================================================== */
 
 /* LCD_BACKLIGHT ============================================================ */
@@ -37,4 +37,4 @@ vHmiBacklightSet (uint8_t ucValue) {
 }
 
 /* ========================================================================== */
-#endif /* _TOUERIS2_BACKLIGHT_H_ */
+#endif /* _HMI4DINBOX_BACKLIGHT_H_ */

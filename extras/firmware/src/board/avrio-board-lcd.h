@@ -10,8 +10,8 @@
  * The fact that you are presently reading this means that you have had
  * knowledge of the CeCILL license and that you accept its terms.
  */
-#ifndef _AVRIO_BOARD_LCD_ST7032_H_
-#define _AVRIO_BOARD_LCD_ST7032_H_
+#ifndef _AVRIO_BOARD_WireLcd_H_
+#define _AVRIO_BOARD_WireLcd_H_
 
 #include <avrio/lcd/lcd_defs.h>
 #include <avr/io.h>
@@ -245,4 +245,4 @@
 //#define LCD_BARGRAPH_ENABLE
 
 /* ========================================================================== */
-#endif  /* _AVRIO_BOARD_LCD_ST7032_H_ not defined */
+#endif  /* _AVRIO_BOARD_WireLcd_H_ not defined */

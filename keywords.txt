@@ -10,6 +10,7 @@ WireRegister	KEYWORD1
 WireLeds	KEYWORD1
 WireKeyboard	KEYWORD1
 WireBackLight	KEYWORD1
+WireLcd	KEYWORD1
 Hmi4DinBox	KEYWORD1
 
 #######################################
@@ -33,6 +34,18 @@ available	KEYWORD2
 key	KEYWORD2
 released	KEYWORD2
 pressed	KEYWORD2
+clear	KEYWORD2
+home	KEYWORD2
+display	KEYWORD2
+noDisplay	KEYWORD2
+setCursor	KEYWORD2
+cursor	KEYWORD2
+noCursor	KEYWORD2
+blink	KEYWORD2
+noBlink	KEYWORD2
+setcontrast	KEYWORD2
+adjcontrast	KEYWORD2
+getcontrast	KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)

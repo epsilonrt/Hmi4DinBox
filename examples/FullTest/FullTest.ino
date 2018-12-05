@@ -1,14 +1,13 @@
-// Hmi4DinBox Class and LCD_ST7032 Library Test
+// Hmi4DinBox Class and WireLcd Library Test
 // by epsilonrt <https://github.com/epsilonrt>
 
-// Control and display of the Toueris2 WireHMI
+// Control and display of the Hmi4DinBox
 
 // Created 23 January 2018
 
 // This example code is in the public domain.
 
 #include <Hmi4DinBox.h>
-#include <LCD_ST7032.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <errno.h>
@@ -22,7 +21,6 @@ const int ledPin = 13;
 Hmi4DinBox hmi (hirqPin);
 char buffer[32];
 byte index = 0;
-LCD_ST7032 lcd;
 
 void setup() {
   int loops = 0;
@@ -34,7 +32,7 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
-  Serial.println ("Hmi4DinBox Class and LCD_ST7032 Library Test");
+  Serial.println ("Hmi4DinBox Class Test");
   Serial.println ("Available commands:");
   Serial.println (" bXXX:\t to set backlight to XXX (0-255)");
   Serial.println (" sX:\t to turn on led X (0-4)");
@@ -52,17 +50,15 @@ void setup() {
   // The LED is lit while waiting for the slave HMI
   pinMode (ledPin, OUTPUT);
   digitalWrite (ledPin, 1);
-  Wire.begin();
-  while (!hmi.begin()) {
+
+  while (!hmi.begin (24)) {
     loops++; // One waiting loop per second
     Serial.println ("hmi.begin() failed ! check the connections to the HMI.");
-    delay(1000);
+    delay (1000);
   }
-  
-  lcd.begin();
-  lcd.setcontrast(24); //contrast value range is 0-63, try 25@5V or 50@3.3V as a starting value
-  lcd.cursor();
-  lcd.blink();
+
+  hmi.lcd.cursor();
+  hmi.lcd.blink();
 
   digitalWrite (ledPin, 0);
 
@@ -235,27 +231,27 @@ void loop() {
           Serial.println (read_value, HEX);
           break;
         case 'p':
-          lcd.print(&buffer[1]);
+          hmi.lcd.print (&buffer[1]);
           break;
         case 'e':
-          lcd.clear();
+          hmi.lcd.clear();
           break;
         case 'g': {
-            int comma;
-            String s(&buffer[1]);
-            comma = s.indexOf(',');
-            if (comma >= 1) {
-              String sx = s.substring(1,comma-1);
-              String sy = s.substring(comma+1,s.length());
-              Serial.print("goto(");
-              Serial.print(sx);
-              Serial.print(",");
-              Serial.print(sy);
-              Serial.println(")");
-              lcd.setCursor(sx.toInt(),sy.toInt());
-            }
+          int comma;
+          String s (&buffer[1]);
+          comma = s.indexOf (',');
+          if (comma >= 1) {
+            String sx = s.substring (1, comma - 1);
+            String sy = s.substring (comma + 1, s.length());
+            Serial.print ("goto(");
+            Serial.print (sx);
+            Serial.print (",");
+            Serial.print (sy);
+            Serial.println (")");
+            hmi.lcd.setCursor (sx.toInt(), sy.toInt());
           }
-          break;
+        }
+        break;
         case 'r':
           if (str2byte (&buffer[1], &value)) {
 
