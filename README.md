@@ -45,9 +45,9 @@ The pinout of the J1 connector is as follows :
 
 | #   | Name    | Description                                                                           |
 | :-: | :---:   | :----------------------------------------------------------                           |
-| 1   | VCC     | 5V or 3.3V power supply, protected against overvoltages and polarity inversions |
-| 2   | SCL     | I2C clock                                                                           |
-| 3   | SDA     | I2C data                                                                           |
+| 1   | VCC     | 5V or 3.3V power supply, protected against overvoltages and polarity inversions       |
+| 2   | SCL     | I2C clock, **no pull-up resistance on this line ! put one on the master board !**     |
+| 3   | SDA     | I2C data, **no pull-up resistance on this line ! put one on the master board !**      |
 | 4   | HIRQ    | Indicates that one or more actions have been performed on the navigation button       |                                                             |
 | 5   | GND     | Ground                                                                                |
 
@@ -107,7 +107,7 @@ If one uses the navigation pad, it is necessary during this declaration to
 specify the number of pin Arduino used by the HMI to indicate that keys are in 
 the internal buffer (it will thus be necessary to read them ...).
 
-    const int hirqPin = 2;
+    const int hirqPin = 7;
     Hmi4DinBox hmi (hirqPin);
 
 Then we can access:
@@ -117,6 +117,59 @@ Then we can access:
 * the backlight function with `hmi.backlight`.
 
 ### Using LCD
+
+The WireLcd class is derived from the Print class.
+You can then use the `print()`, `println()`, `write()` functions:
+
+    int i = 5;
+    hmi.lcd.print("Helloworld ! ");
+    hmi.lcd.println(i++);
+    hmi.lcd.write('C');
+
+To clear the screen:
+
+    hmi.lcd.clear();
+
+To move to the beginning of line 2:
+
+    hmi.lcd.setCursor (1, 0);
+
+To return to the top right:
+
+    hmi.lcd.home();
+    
+To turn off the display:
+
+    hmi.lcd.noDisplay();
+
+To turn on the display:
+
+    hmi.lcd.display();
+
+To turn on the cursor:
+
+    hmi.lcd.cursor();
+
+To turn off the cursor:
+
+    hmi.lcd.noCursor();
+
+To enable cursor blinking:
+
+    hmi.lcd.blink();
+
+To disable cursor blinking:
+
+    hmi.lcd.noBlink();
+    
+The contrast of the LCD can be changed, the value can vary from 0 to 63:
+
+    hmi.lcd.setcontrast (24);
+
+The contrast can also be read and adjusted in relation to the current value:
+
+    byte c = hmi.lcd.getcontrast();
+    hmi.lcd.adjcontrast (-1); // decrement the contrast value by 1
 
 ### Using leds
 
@@ -138,8 +191,10 @@ toggles the state of LED1,
 
 read the state of the LED1,
 
-The `hmi.led.writeAll ()` function allows you to modify all leds at the same time. By default, a call to this function without parameters turns on all leds.
-If we pass him a parameter, that corresponds to the state of the leds. Bit 0 of this parameter is used to control LED1, bit 1, LED2 ...
+The `hmi.led.writeAll ()` function allows you to modify all leds at the same time. 
+By default, a call to this function without parameters turns on all leds.
+If we pass him a parameter, that corresponds to the state of the leds. 
+Bit 0 of this parameter is used to control LED1, bit 1, LED2 ...
 
 ### Using the keyboard
 
@@ -167,16 +222,9 @@ As can be seen in the sketch [BacklightDemo.ino](examples/BacklightDemo/Backligh
 
     hmi.backlight.write (bl);
 
-allows to modify the value of the backlight (between 0 and 255), as this value is stored in EEPROM by the HMI, it is possible to read the current value thanks to:
+allows to modify the value of the backlight (between 0 and 255), as this value 
+is stored in EEPROM by the HMI, it is possible to read the current value thanks to:
 
     bl = hmi.backlight.read ();
-
-## How to update the firmware ?
-
-! TODO !
-
-## How to program the bootloader ?
-
-! TODO !
 
 ------
