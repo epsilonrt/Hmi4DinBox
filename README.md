@@ -17,9 +17,9 @@ of a DIN rail enclosure.
 </p>
 
 Its features are as follows :   
-* 5 leds,  
+* LCD 2x16 characters with a backlight (based on ST7032),  
 * a navigation button with (4 directions + 1 push button),  
-* an 2x16 LCD display with a backlight (based on ST7032),  
+* 5 leds,  
 * driven by a simple I2C bus and a binary signal `HIRQ` which indicates that one or 
 more actions have been performed on the navigation button (key presses and 
 releases in the 5 directions stored in a buffer),  
@@ -226,5 +226,10 @@ allows to modify the value of the backlight (between 0 and 255), as this value
 is stored in EEPROM by the HMI, it is possible to read the current value thanks to:
 
     bl = hmi.backlight.read ();
+
+## Bootloader and Firmware
+
+The burning of the bootloader and firmware is explained in the 
+[wiki](https://github.com/epsilonrt/Hmi4DinBox/wiki).
 
 ------
