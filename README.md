@@ -171,6 +171,8 @@ The contrast can also be read and adjusted in relation to the current value:
     byte c = hmi.lcd.getcontrast();
     hmi.lcd.adjcontrast (-1); // decrement the contrast value by 1
 
+You can watch the sketch [HelloWorld.ino](examples/HelloWorld/HelloWorld.ino):
+
 ### Using leds
 
 As can be seen in the sketch [LedDemo.ino](examples/LedDemo/LedDemo.ino):
