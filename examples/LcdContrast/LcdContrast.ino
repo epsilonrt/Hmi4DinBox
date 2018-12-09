@@ -9,7 +9,7 @@
 
 #include <Hmi4DinBox.h>
 
-const int hirqPin = 2;
+const int hirqPin = 7;
 Hmi4DinBox hmi (hirqPin);
 
 byte ct;

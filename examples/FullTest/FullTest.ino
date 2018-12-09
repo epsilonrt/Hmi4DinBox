@@ -15,7 +15,7 @@
 
 //------------------------------------------------------------------------------
 const unsigned pause = 1000;
-const int hirqPin = 2;
+const int hirqPin = 7;
 const int ledPin = 13;
 
 Hmi4DinBox hmi (hirqPin);
