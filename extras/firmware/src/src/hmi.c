@@ -133,10 +133,9 @@ eTwiSlaveRxCB (xQueue * pxRxPayload, eTwiStatus eStatus) {
        * permettant au maître de spécifier l'adresse du registre qu'il
        * souhaite lire avant de les lire.
        */
-      value = ucQueuePull (pxRxPayload);
-      if ( (value == LED_REG) || (value == BACKLIGHT_REG)) {
+      ucBufferIdx = ucQueuePull (pxRxPayload);
+      if ( (ucBufferIdx == LED_REG) || (ucBufferIdx == BACKLIGHT_REG)) {
 
-        ucBufferIdx = value;
         while (! xQueueIsEmpty (pxRxPayload)) {
 
           value  = ucQueuePull (pxRxPayload);

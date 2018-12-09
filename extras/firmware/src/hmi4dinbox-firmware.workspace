@@ -8,11 +8,8 @@
   <Project Name="test_task" Path="test/task/test_task.project" Active="No"/>
   <Project Name="test_button" Path="test/button/test_button.project" Active="No"/>
   <Project Name="test_lcd" Path="test/lcd/test_lcd.project" Active="No"/>
-  <Project Name="test_serial_hw" Path="test/serial/hardware/test_serial_hw.project" Active="No"/>
-  <Project Name="test_serial_sw" Path="test/serial/software/test_serial_sw.project" Active="No"/>
   <Project Name="test_backlight" Path="test/backlight/test_backlight.project" Active="No"/>
-  <Project Name="test_twi" Path="test/twi/test_twi.project" Active="No"/>
-  <Project Name="hmi4dinbox-firmware" Path="src/hmi4dinbox-firmware.project" Active="Yes"/>
+  <Project Name="hmi4dinbox-firmware" Path="hmi4dinbox-firmware.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="no">
       <Environment/>
@@ -27,6 +24,7 @@
       <Project Name="test_twi" ConfigName="Debug"/>
       <Project Name="hmi4dinbox-firmware" ConfigName="Debug"/>
       <Project Name="Arduino" ConfigName="Debug"/>
+      <Project Name="hmi4dinbox-firmware" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -41,6 +39,7 @@
       <Project Name="test_twi" ConfigName="Release"/>
       <Project Name="hmi4dinbox-firmware" ConfigName="Release"/>
       <Project Name="Arduino" ConfigName="Release"/>
+      <Project Name="hmi4dinbox-firmware" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

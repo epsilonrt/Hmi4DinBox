@@ -13,15 +13,9 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_delay", "test\delay\te
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_lcd", "test\lcd\test_lcd.cproj", "{F8EE2831-25AD-4F51-832F-9BCCBF97CA6A}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_serial_hw", "test\serial\hardware\test_serial_hw.cproj", "{E9C6BD14-BD50-400C-A70A-2805B79708A8}"
-EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_serial_sw", "test\serial\software\test_serial_sw.cproj", "{8B2ADA77-53A9-47B2-97E2-CB3BA5A085E2}"
-EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_task", "test\task\test_task.cproj", "{EEE38C59-C7B2-491D-A354-3DACAE8F2336}"
 EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "test_twi", "test\twi\test_twi.cproj", "{B1AED732-8021-4AE0-BCCD-4D1A292F5341}"
-EndProject
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "hmi4dinbox-firmware", "src\hmi4dinbox-firmware.cproj", "{6A5A1D82-5772-45FB-BBFA-2C6F17D683D3}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "hmi4dinbox-firmware", "hmi4dinbox-firmware.cproj", "{6A5A1D82-5772-45FB-BBFA-2C6F17D683D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,14 +32,8 @@ Global
 		{E0B8CD8A-19C9-4358-8355-190149F140D6}.default|AVR.Build.0 = default|AVR
 		{F8EE2831-25AD-4F51-832F-9BCCBF97CA6A}.default|AVR.ActiveCfg = default|AVR
 		{F8EE2831-25AD-4F51-832F-9BCCBF97CA6A}.default|AVR.Build.0 = default|AVR
-		{E9C6BD14-BD50-400C-A70A-2805B79708A8}.default|AVR.ActiveCfg = default|AVR
-		{E9C6BD14-BD50-400C-A70A-2805B79708A8}.default|AVR.Build.0 = default|AVR
-		{8B2ADA77-53A9-47B2-97E2-CB3BA5A085E2}.default|AVR.ActiveCfg = default|AVR
-		{8B2ADA77-53A9-47B2-97E2-CB3BA5A085E2}.default|AVR.Build.0 = default|AVR
 		{EEE38C59-C7B2-491D-A354-3DACAE8F2336}.default|AVR.ActiveCfg = default|AVR
 		{EEE38C59-C7B2-491D-A354-3DACAE8F2336}.default|AVR.Build.0 = default|AVR
-		{B1AED732-8021-4AE0-BCCD-4D1A292F5341}.default|AVR.ActiveCfg = default|AVR
-		{B1AED732-8021-4AE0-BCCD-4D1A292F5341}.default|AVR.Build.0 = default|AVR
 		{6A5A1D82-5772-45FB-BBFA-2C6F17D683D3}.default|AVR.ActiveCfg = default|AVR
 		{6A5A1D82-5772-45FB-BBFA-2C6F17D683D3}.default|AVR.Build.0 = default|AVR
 	EndGlobalSection
