@@ -6,84 +6,65 @@
 // Created 23 January 2018
 
 // This example code is in the public domain.
+#ifdef __unix__
+#include <Piduino.h>  // All the magic is here ;-)
+#else
+// Defines the serial port as the console on the Arduino platform
+#define Console Serial
+#endif
 
 #include <Hmi4DinBox.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <errno.h>
-#include <avr/wdt.h>
 
-//------------------------------------------------------------------------------
 const unsigned pause = 1000;
 const int hirqPin = 7;
-const int ledPin = 13;
 
 Hmi4DinBox hmi (hirqPin);
 char buffer[32];
-byte index = 0;
+byte idx = 0;
 
 void setup() {
-  int loops = 0;
 
-  MCUSR = 0;
-  wdt_disable();
+  Console.begin (115200);
+  Console.println ("Hmi4DinBox Class Test");
+  Console.println ("Available commands:");
+  Console.println (" bXXX:\t to set backlight to XXX (0-255)");
+  Console.println (" sX:\t to turn on led X (0-4)");
+  Console.println (" cX:\t to turn off led X (0-4)");
+  Console.println (" tX:\t to toggle led X (0-4)");
+  Console.println (" rX:\t to read led X (0-4)");
+  Console.println (" WXX:\t write all leds (0-1F)");
+  Console.println (" TXX:\t toggle all leds (0-1F)");
+  Console.println (" R:\t read all leds");
+  Console.println (" p:\t print text on LCD");
+  Console.println (" e:\t erase LCD");
+  Console.println (" gXX,YY: LCD goto to X,Y");
+  Console.println (" q:\t quit");
 
-  Serial.begin (38400);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
-  Serial.println ("Hmi4DinBox Class Test");
-  Serial.println ("Available commands:");
-  Serial.println (" bXXX:\t to set backlight to XXX (0-255)");
-  Serial.println (" sX:\t to turn on led X (0-4)");
-  Serial.println (" cX:\t to turn off led X (0-4)");
-  Serial.println (" tX:\t to toggle led X (0-4)");
-  Serial.println (" rX:\t to read led X (0-4)");
-  Serial.println (" WXX:\t write all leds (0-1F)");
-  Serial.println (" TXX:\t toggle all leds (0-1F)");
-  Serial.println (" R:\t read all leds");
-  Serial.println (" p:\t print text on LCD");
-  Serial.println (" e:\t erase LCD");
-  Serial.println (" gXX,YY: LCD goto to X,Y");
-  Serial.println (" K:\t RESET by watchdog");
+  if (!hmi.begin (34, true)) {
 
-  // The LED is lit while waiting for the slave HMI
-  pinMode (ledPin, OUTPUT);
-  digitalWrite (ledPin, 1);
-
-  while (!hmi.begin (24)) {
-    loops++; // One waiting loop per second
-    Serial.println ("hmi.begin() failed ! check the connections to the HMI.");
-    delay (1000);
+    Console.println ("hmi.begin() failed !");
+    exit (1); // HMI failed to start !
   }
 
   hmi.lcd.cursor();
   hmi.lcd.blink();
-
-  digitalWrite (ledPin, 0);
-
-  // The led flashes to inform the number of waiting loops
-  for (byte j = 0; j < loops; j++) {
-
-    digitalWrite (ledPin, 1);
-    delay (200);
-    digitalWrite (ledPin, 0);
-    delay (200);
-  }
 }
 
 void verify (int i) {
   if (i) {
-    Serial.println ("\n>Ok");
+    Console.println (">Ok");
   }
   else {
-    Serial.println ("\n>Fail");
+    Console.println (">Fail");
   }
 }
 
 bool test (int i) {
   if (!i) {
-    Serial.println ("\n>Fail");
+    Console.println (">Fail");
     return false;
   }
   return true;
@@ -113,25 +94,21 @@ bool str2byte (const char * str, byte * value, byte base = 0) {
 
 void loop() {
 
-  if (Serial.available() > 0) {
+  if (Console.available() > 0) {
     // read the incoming byte:
-    char c = Serial.read();
-    if ( ( (c != '\n') && (c != '\r')) && (index < (sizeof (buffer) - 1))) {
-      buffer[index++] = c;
+    char c = Console.read();
+    if ( ( (c != '\n') && (c != '\r')) && (idx < (sizeof (buffer) - 1))) {
+      buffer[idx++] = c;
     }
     else {
       byte value, read_value;
       bool success;
 
-      buffer[index] = 0;
+      buffer[idx] = 0;
       switch (buffer[0]) {
-        case 'K':
-        case 'k':
-          buffer[0] = 0;
-          index = 0;
-          wdt_enable (WDTO_15MS);
-          for (;;);
-          break;
+        case 'q':
+        case 'Q':
+          exit (0);
         case 'b':
           if (str2byte (&buffer[1], &value)) {
             success = hmi.backlight.write (value);
@@ -227,8 +204,8 @@ void loop() {
           break;
         case 'R':
           read_value = hmi.led.readAll ();
-          Serial.print ("\n>");
-          Serial.println (read_value, HEX);
+          Console.print ("\n>");
+          Console.println (read_value, HEX);
           break;
         case 'p':
           hmi.lcd.print (&buffer[1]);
@@ -243,11 +220,11 @@ void loop() {
           if (comma >= 1) {
             String sx = s.substring (1, comma - 1);
             String sy = s.substring (comma + 1, s.length());
-            Serial.print ("goto(");
-            Serial.print (sx);
-            Serial.print (",");
-            Serial.print (sy);
-            Serial.println (")");
+            Console.print ("goto(");
+            Console.print (sx);
+            Console.print (",");
+            Console.print (sy);
+            Console.println (")");
             hmi.lcd.setCursor (sx.toInt(), sy.toInt());
           }
         }
@@ -259,10 +236,10 @@ void loop() {
 
               read_value = hmi.led.get (value);
               if (read_value) {
-                Serial.println ("\n>1");
+                Console.println ("\n>1");
               }
               else {
-                Serial.println ("\n>0");
+                Console.println ("\n>0");
               }
             }
             else {
@@ -274,11 +251,11 @@ void loop() {
           }
           break;
         default:
-          Serial.println ("\n>Invalid command !");
+          Console.println ("\n>Invalid command !");
           break;
       }
       buffer[0] = 0;
-      index = 0;
+      idx = 0;
     }
   }
 
@@ -286,13 +263,12 @@ void loop() {
     byte key = hmi.keyb.key();
 
     if (hmi.keyb.released()) {
-      Serial.write ('R');
+      Console.write ('R');
     }
     else {
 
-      Serial.write ('P');
+      Console.write ('P');
     }
-    Serial.println (key);
+    Console.println (key);
   }
 }
-//------------------------------------------------------------------------------

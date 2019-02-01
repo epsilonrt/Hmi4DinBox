@@ -6,6 +6,12 @@
 // Created 18 may 2018
 
 // This example code is in the public domain.
+#ifdef __unix__
+#include <Piduino.h>  // All the magic is here ;-)
+#else
+// Defines the serial port as the console on the Arduino platform
+#define Console Serial
+#endif
 
 #include <Hmi4DinBox.h>
 
@@ -14,8 +20,10 @@ Hmi4DinBox hmi (hirqPin);
 
 void setup() {
 
-  if (!hmi.begin (24)) {
+  Console.begin (115200);
+  if (!hmi.begin (24, false)) {
 
+    Console.println("hmi.begin() failed !");
     exit (1); // HMI failed to start !
   }
   
@@ -60,5 +68,3 @@ void loop() {
 
   }
 }
-
-//------------------------------------------------------------------------------

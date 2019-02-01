@@ -6,6 +6,12 @@
 // Created 18 may 2018
 
 // This example code is in the public domain.
+#ifdef __unix__
+#include <Piduino.h>  // All the magic is here ;-)
+#else
+// Defines the serial port as the console on the Arduino platform
+#define Console Serial
+#endif
 
 #include <Hmi4DinBox.h>
 
@@ -13,19 +19,17 @@ Hmi4DinBox hmi;
 
 void setup() {
 
-  pinMode (LED_BUILTIN, OUTPUT);
-  digitalWrite (LED_BUILTIN, HIGH);  // the led lights to indicate the beginning of the setup ()
-  if (!hmi.begin (24)) {
+  Console.begin (115200);
+  if (!hmi.begin (24, false)) {
 
+    Console.println("hmi.begin() failed !");
     exit (1); // HMI failed to start !
   }
-  digitalWrite (LED_BUILTIN, LOW); // the led goes off to indicate the end of the setup ()
 }
 
 void loop() {
   static int counter = 0;
 
-  digitalWrite (LED_BUILTIN, HIGH);  // the led turns on and off at each loop.
   // Write a piece of text on the first line...
   hmi.lcd.setCursor (0, 0); //LINE 1, ADDRESS 0
   hmi.lcd.print ("Hello World");
@@ -37,7 +41,5 @@ void loop() {
   hmi.lcd.print (counter % 10, DEC);
   hmi.lcd.write (' ');
   counter++;
-  delay (250);
-  digitalWrite (LED_BUILTIN, LOW);
-  delay (250);
+  delay (500);
 }
