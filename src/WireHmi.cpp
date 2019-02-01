@@ -107,7 +107,7 @@ bool WireRegister::begin() {
     byte data, timeout = 10;
     byte count;
 
-    while ( (timeout--) && (count = _slave->read (_reg, &data, 1))) {
+    while ( (timeout--) && ( (count = _slave->read (_reg, &data, 1)) != 1)) {
       delay (100);;
     }
     return (count == 1);
