@@ -24,6 +24,7 @@ void printContrast ();
 void setup() {
 
   Console.begin (115200);
+  Wire.begin(); // change this if you use another I2C port or if you use non standard I2C pins
   if (!hmi.begin (24, false)) {
 
     Console.println("hmi.begin() failed !");

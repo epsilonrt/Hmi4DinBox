@@ -70,7 +70,6 @@ WireLcd::WireLcd() {
 
 void WireLcd::begin (bool b) {
   boost = b;
-  Wire.begin();
   delay (100);
   Write_Instruction (FUNCTION_SET | FUNCTION_SET_DL | FUNCTION_SET_N | FUNCTION_SET_IS);
   Write_Instruction (INTERNAL_OSC_FREQ | INTERNAL_OSC_FREQ_BS | INTERNAL_OSC_FREQ_F2);

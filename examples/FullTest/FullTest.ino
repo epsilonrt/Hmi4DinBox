@@ -28,6 +28,7 @@ byte idx = 0;
 void setup() {
 
   Console.begin (115200);
+  Wire.begin(); // change this if you use another I2C port or if you use non standard I2C pins
   Console.println ("Hmi4DinBox Class Test");
   Console.println ("Available commands:");
   Console.println (" bXXX:\t to set backlight to XXX (0-255)");
