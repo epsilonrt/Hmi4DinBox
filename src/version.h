@@ -1,6 +1,6 @@
-#define VERSION "1.0-0"
-#define VERSION_SHORT "1.0.0"
-#define VERSION_TINY "1.0"
+#define VERSION "1.1-0"
+#define VERSION_SHORT "1.1.0"
+#define VERSION_TINY "1.1"
 #define VERSION_MAJOR 1
 #define VERSION_MINOR 0
 #define VERSION_PATCH 0

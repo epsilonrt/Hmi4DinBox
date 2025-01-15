@@ -1,0 +1,26 @@
+{
+  "name": "Hmi4DinBox",
+  "version": "1.1.0",
+  "keywords": "hmi, lcd, push button, led, din box, industrial, i2c, wire",
+  "description": "A library that allows your Arduino to manage an I2C Human to Machine Interface.",
+  "homepage": "https://github.com/epsilonrt/Hmi4DinBox",
+  "authors":
+  [
+    {
+      "name": "Pascal JEAN aka epsilonrt",
+      "url": "https://github.com/epsilonrt",
+      "maintainer": true
+    }
+  ],
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/epsilonrt/Hmi4DinBox.git"
+  },
+  "license": "BSD-3-Clause",
+  "examples":[
+    "examples/*/*.ino"
+  ],
+  "frameworks": "arduino",
+  "platforms": "*"
+}
