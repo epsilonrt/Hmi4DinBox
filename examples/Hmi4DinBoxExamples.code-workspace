@@ -1,0 +1,23 @@
+{
+	"folders": [
+    {
+      "path": "FullTest"
+    },
+    {
+      "path": "BacklightDemo"
+    },
+    {
+      "path": "HelloWorld"
+    },
+    {
+      "path": "KeyboardDemo"
+    },
+    {
+      "path": "LcdContrast"
+    },
+    {
+      "path": "LedDemo"
+    }
+  ],
+  "settings": {}
+}

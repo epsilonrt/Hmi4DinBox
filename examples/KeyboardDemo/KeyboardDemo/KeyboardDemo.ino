@@ -15,6 +15,8 @@
 
 #include <Hmi4DinBox.h>
 
+const int lcdContrast = 34; // 24 if you use a 5V power supply, 34 if you use a 3.3V power supply
+const bool lcdBoost = true; // false if you use a 5V power supply, true if you use a 3.3V power supply
 const int hirqPin = 7;
 Hmi4DinBox hmi (hirqPin);
 
@@ -22,7 +24,7 @@ void setup() {
 
   Console.begin (115200);
   Wire.begin(); // change this if you use another I2C port or if you use non standard I2C pins
-  if (!hmi.begin (24, false)) {
+  if (!hmi.begin (lcdContrast, lcdBoost)) {
 
     Console.println("hmi.begin() failed !");
     exit (1); // HMI failed to start !

@@ -18,7 +18,9 @@
 #include <limits.h>
 #include <errno.h>
 
-const unsigned pause = 1000;
+const int lcdContrast = 34; // 24 if you use a 5V power supply, 34 if you use a 3.3V power supply
+const bool lcdBoost = true; // false if you use a 5V power supply, true if you use a 3.3V power supply
+const unsigned lpause = 1000;
 const int hirqPin = 7;
 
 Hmi4DinBox hmi (hirqPin);
@@ -28,7 +30,10 @@ byte idx = 0;
 void setup() {
 
   Console.begin (115200);
-  Wire.begin(); // change this if you use another I2C port or if you use non standard I2C pins
+
+  while (!Console) {
+    ; // wait for Console port to connect.
+  }
   Console.println ("Hmi4DinBox Class Test");
   Console.println ("Available commands:");
   Console.println (" bXXX:\t to set backlight to XXX (0-255)");
@@ -44,7 +49,8 @@ void setup() {
   Console.println (" gXX,YY: LCD goto to X,Y");
   Console.println (" q:\t quit");
 
-  if (!hmi.begin (34, true)) {
+  Wire.begin(); // change this if you use another I2C port or if you use non standard I2C pins
+  if (!hmi.begin (lcdContrast, lcdBoost)) {
 
     Console.println ("hmi.begin() failed !");
     exit (1); // HMI failed to start !
